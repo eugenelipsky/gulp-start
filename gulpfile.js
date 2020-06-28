@@ -1,7 +1,7 @@
 let gulp = require('gulp'),
     sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
-    uglify = require('gulp-uglify'),
+    terser = require('gulp-terser'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     del = require('del'),
@@ -61,7 +61,7 @@ gulp.task('js', function () {
             'node_modules/magnific-popup/dist/jquery.magnific-popup.js'
         ])
         .pipe(concat('libs.min.js'))
-        .pipe(uglify())
+        .pipe(terser())
         .pipe(gulp.dest('app/js'))
         .pipe(browserSync.reload({
             stream: true
